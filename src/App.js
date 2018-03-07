@@ -13,6 +13,12 @@ componentDidMount() {
   })
 }
 
+changeBookShelf = async (book, newShelf) => {
+  await BooksAPI.update(book, newShelf)
+  let books = await BooksAPI.getAll()
+  this.setState({ books })
+}
+
   render() {
     return (
       <div className="app">
