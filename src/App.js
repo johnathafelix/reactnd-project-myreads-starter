@@ -3,6 +3,7 @@ import * as BooksAPI from './BooksAPI'
 import './App.css'
 import BooksGrid from './BooksGrid'
 import BookSearch from './BookSearch'
+import { Link, Route } from 'react-router-dom'
 
 class BooksApp extends Component {
   state = {
@@ -24,8 +25,13 @@ class BooksApp extends Component {
   render() {
     return (
       <div className="app">
-        <BooksGrid />
-        <BookSearch />
+        <Route exact path="/" render={() => (<BooksGrid />)} />
+        <Route exact path="/search" render={() => (<BookSearch />)} />
+        <div className="open-search">
+          <Link to="/search">
+            Add a book
+              </Link>
+        </div>
       </div>
     )
   }
