@@ -62,6 +62,10 @@ body, .app {
   font-size: 0;
 }
 
+ol { 
+  list-style-type: none; 
+}
+
 /* search page */
 
 .search-books-bar {
