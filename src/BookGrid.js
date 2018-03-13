@@ -4,12 +4,13 @@ import PropTypes from 'prop-types'
 class BookGrid extends Component {
 
   static propTypes = {
-    books: PropTypes.array.isRequired
+    books: PropTypes.array.isRequired,
+    changeBookShelf: PropTypes.func.isRequired
   }
 
   render() {
 
-    const { books } = this.props
+    const { books, changeBookShelf } = this.props
 
     return (
       <ol className="books-grid">
@@ -19,7 +20,7 @@ class BookGrid extends Component {
               <div className="book-top">
                 <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.smallThumbnail})` }}></div>
                 <div className="book-shelf-changer">
-                  <select>
+                  <select value={book.shelf} onChange={(event) => changeBookShelf(book, event.target.value)}>
                     <option value="none" disabled>Move to...</option>
                     <option value="currentlyReading">Currently Reading</option>
                     <option value="wantToRead">Want to Read</option>

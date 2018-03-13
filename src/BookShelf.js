@@ -25,7 +25,7 @@ class BookShelf extends Component {
 
   render() {
 
-    const { books, onChangeShelf } = this.props
+    const { books, changeBookShelf } = this.props
 
     return (
       <div className="list-books">
@@ -42,6 +42,7 @@ class BookShelf extends Component {
                     <div className="bookshelf-books">
                       <BookGrid
                         books={books.filter((book) => { return shelf.id === book.shelf })}
+                        changeBookShelf={changeBookShelf}
                       />
                     </div>
                   </div>
