@@ -40,7 +40,9 @@ class BookShelf extends Component {
                   <h2 className="bookshelf-title">{shelf.description}</h2>
                   <div className="bookshelf">
                     <div className="bookshelf-books">
-                      <BookGrid />
+                      <BookGrid
+                        books={books.filter((book) => { return shelf.id === book.shelf })}
+                      />
                     </div>
                   </div>
                 </li>
